@@ -169,5 +169,4 @@ if submitted:
     st.write("Scraping for the following keywords:", str(chosen_keywords), 'for ', numberOfTimes, "times.")
 
     resultDict = adScraper(numberOfTimes, listOfKeywords)
-    #rawOutput = jsonToDataFrame(resultDict, listOfKeywords)
     resultJson = st.json(resultDict)
