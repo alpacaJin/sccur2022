@@ -4,6 +4,7 @@ from streamlit_tags import st_tags
 import requests, tldextract
 #import json
 from bs4 import BeautifulSoup
+import lxml
 #from csv import writer
 
 def adScraper(numberOfTimes, listOfKeywords):
@@ -41,7 +42,7 @@ def adScraper(numberOfTimes, listOfKeywords):
                 if status_code == 200:
                     # Create BeautifulSoup object
                     response = html.text
-                    soup = BeautifulSoup(response, 'lxml')
+                    soup = BeautifulSoup(response, 'html.parser')
                         
                     # Scraping top and bottom advertisements -- Title URL, Company, Product desc
                     print('--------------------------------Advertisements--------------------------------')

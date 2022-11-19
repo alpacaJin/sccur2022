@@ -37,7 +37,8 @@ with open("Scraped_URLs_dataset.csv", "w", encoding='utf-8', newline='') as file
             if status_code == 200:
                 # Create BeautifulSoup object
                 response = html.text
-                soup = BeautifulSoup(response, 'lxml')
+                #soup = BeautifulSoup(response, 'lxml')
+                soup = BeautifulSoup(response, 'html.parser')
                     
                 # Scraping top and bottom advertisements -- Title URL, Company, Product desc
                 print('--------------------------------Advertisements--------------------------------')
