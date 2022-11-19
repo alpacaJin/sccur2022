@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 from streamlit_tags import st_tags
-import requests, json, tldextract
+import requests, tldextract
+#import json
 from bs4 import BeautifulSoup
-from csv import writer
+#from csv import writer
 
 def adScraper(numberOfTimes, listOfKeywords):
     # Specify User Agent
@@ -18,9 +19,9 @@ def adScraper(numberOfTimes, listOfKeywords):
 
     # Write advertisement elements to csv file
     with open("Scraped_URLs_dataset.csv", "w", encoding='utf-8', newline='') as file:
-        thewriter = writer(file)
+        #thewriter = writer(file)
         header = ['URL', 'Company', 'Title', 'Product_Description']
-        thewriter.writerow(header)
+        #thewriter.writerow(header)
 
         for keyword in listOfKeywords:
             # To find reoccurent companies
@@ -90,7 +91,7 @@ def adScraper(numberOfTimes, listOfKeywords):
                             absolute_top += 1
                         
                             adElements = [url, company, advertisementTitle, productDesciption]
-                            thewriter.writerow(adElements)
+                            #thewriter.writerow(adElements)
                         
                             progress += (0.5/(len(listOfKeywords)*numberOfTimes))
                             if progress >= 1.0:
@@ -109,7 +110,7 @@ def adScraper(numberOfTimes, listOfKeywords):
             resultDict[keyword]['top performers'] = keys
             resultDict[keyword]['total ads'] = numOfAds
 
-    print(json.dumps(resultDict, indent = 4))
+    #print(json.dumps(resultDict, indent = 4))
 
     # success message
     st.success("Keyword scraping completed successfully!")
