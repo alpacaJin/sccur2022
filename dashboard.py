@@ -4,7 +4,6 @@ from streamlit_tags import st_tags
 import requests, tldextract
 #import json
 from bs4 import BeautifulSoup
-import lxml
 #from csv import writer
 
 def adScraper(numberOfTimes, listOfKeywords):
